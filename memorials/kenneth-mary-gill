@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>In Loving Memory of John Smith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #f5f5f5;
+      padding: 30px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+    .portrait {
+      max-width: 200px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .video-container {
+      margin: 40px auto;
+      max-width: 720px;
+    }
+    iframe {
+      width: 100%;
+      height: 405px;
+      border: none;
+    }
+    .quote {
+      font-style: italic;
+      margin-top: 30px;
+      color: #555;
+    }
+    footer {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 60px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>In Loving Memory of John Smith</h1>
+    <p>June 12, 1933 – April 9, 2024</p>
+    <img src="/memorials/images/Kenneth_and_Mary_Gill.jpeg" class="portrait" alt="Portrait of John Smith" />
+  </header>
+
+  <div class="video-container">
+    <iframe src="https://drive.google.com/file/d/1qJA5wF4jP4TcK9-Jm3va44a3s0-tnQJ5/view?usp=drive_link" allow="autoplay"></iframe>
+  </div>
+
+  <p class="quote">“Forever remembered, forever missed.”</p>
+
+  <footer>&copy; 2025 Memorial Memories</footer>
+
+</body>
+</html>
