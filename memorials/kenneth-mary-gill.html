@@ -22,12 +22,30 @@
       font-family: 'Playfair Display', serif;
       margin: 0;
     }
-    .portrait {
-      max-width: 200px;
-      border-radius: 8px;
+    .portrait-wrapper {
+      position: relative;
+      display: inline-block;
       margin-top: 20px;
+      cursor: pointer;
+    }
+    .portrait-wrapper img {
+      max-width: 300px;
+      border-radius: 12px;
+      transition: opacity 0.3s ease;
+    }
+    .portrait-wrapper::after {
+      content: '▶';
+      font-size: 60px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
     }
     .video-container {
+      display: none;
       margin: 40px auto;
       max-width: 720px;
     }
@@ -54,16 +72,25 @@
   <header>
     <h1>In Loving Memory of Kenneth and Mary Gill</h1>
     <p>June 12, 1933 – April 9, 2024</p>
-    <img src="/memorials/images/Kenneth_and_Mary_Gill.jpeg" class="portrait" alt="Portrait of Kenneth and Mary Gill" />
+    <div class="portrait-wrapper" onclick="playVideo()">
+      <img src="/memorials/images/Kenneth_and_Mary_Gill.jpeg" alt="Portrait of Kenneth and Mary Gill" />
+    </div>
   </header>
 
-  <div class="video-container">
+  <div class="video-container" id="video-container">
     <iframe src="https://drive.google.com/file/d/1qJA5wF4jP4TcK9-Jm3va44a3s0-tnQJ5/preview" allow="autoplay"></iframe>
   </div>
 
   <p class="quote">“The best of you both lives in us all.”</p>
 
   <footer>&copy; 2025 Memorial Memories</footer>
+
+  <script>
+    function playVideo() {
+      document.querySelector('.portrait-wrapper').style.display = 'none';
+      document.getElementById('video-container').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
