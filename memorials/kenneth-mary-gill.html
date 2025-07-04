@@ -37,6 +37,27 @@
       margin-top: 30px;
       color: #555;
     }
+    .social-share {
+      margin-top: 40px;
+    }
+    .social-share a,
+    .social-share button {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0066cc;
+      border: 1px solid #ddd;
+      padding: 8px 14px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background 0.3s;
+      background-color: white;
+      cursor: pointer;
+    }
+    .social-share a:hover,
+    .social-share button:hover {
+      background: #f0f0f0;
+    }
     footer {
       font-size: 14px;
       color: #aaa;
@@ -58,7 +79,25 @@
 
   <p class="quote">“The best of you both lives in us all.”</p>
 
+  <div class="social-share">
+    <p>Share this memorial:</p>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://memorial-memories.org/kenneth-mary-gill.html" target="_blank">Facebook</a>
+    <a href="https://twitter.com/intent/tweet?url=https://memorial-memories.org/kenneth-mary-gill.html&text=In+Loving+Memory+of+Kenneth+and+Mary+Gill" target="_blank">X (Twitter)</a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://memorial-memories.org/kenneth-mary-gill.html" target="_blank">LinkedIn</a>
+    <a href="https://www.pinterest.com/pin/create/button/?url=https://memorial-memories.org/kenneth-mary-gill.html&description=In+Loving+Memory+of+Kenneth+and+Mary+Gill" target="_blank">Pinterest</a>
+    <button onclick="copyLink()">Copy Link</button>
+  </div>
+
   <footer>&copy; 2025 Memorial Memories</footer>
+
+  <script>
+    function copyLink() {
+      const link = "https://memorial-memories.org/kenneth-mary-gill.html";
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
+  </script>
 
 </body>
 </html>
