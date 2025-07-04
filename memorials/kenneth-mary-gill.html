@@ -26,11 +26,11 @@
       margin: 40px auto;
       max-width: 720px;
       position: relative;
-      cursor: pointer;
     }
     .video-thumb img {
       width: 100%;
       border-radius: 8px;
+      cursor: pointer;
     }
     .video-thumb::after {
       content: '▶';
@@ -48,6 +48,7 @@
       height: 405px;
       border: none;
       border-radius: 8px;
+      display: none;
     }
     .quote {
       font-style: italic;
@@ -69,10 +70,11 @@
     <p>June 12, 1933 – April 9, 2024</p>
   </header>
 
-  <div class="video-container" onclick="playVideo()">
-    <div class="video-thumb" id="video-thumb">
+  <div class="video-container">
+    <div class="video-thumb" id="video-thumb" onclick="playVideo()" style="position: relative;">
       <img src="/memorials/images/Kenneth_and_Mary_Gill.jpeg" alt="Kenneth and Mary Gill" />
     </div>
+    <iframe id="memorial-video" src="https://drive.google.com/file/d/1qJA5wF4jP4TcK9-Jm3va44a3s0-tnQJ5/preview?autoplay=1" allow="autoplay"></iframe>
   </div>
 
   <p class="quote">“The best of you both lives in us all.”</p>
@@ -81,8 +83,11 @@
 
   <script>
     function playVideo() {
-      const container = document.querySelector('.video-container');
-      container.innerHTML = `<iframe src="https://drive.google.com/file/d/1qJA5wF4jP4TcK9-Jm3va44a3s0-tnQJ5/preview" allow="autoplay"></iframe>`;
+      document.getElementById('video-thumb').style.display = 'none';
+      const iframe = document.getElementById('memorial-video');
+      iframe.style.display = 'block';
+      // Force reload to make autoplay work
+      iframe.src = iframe.src;
     }
   </script>
 
