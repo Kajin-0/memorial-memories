@@ -6,36 +6,52 @@
   <title>Memorial Memories</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-    }
-    header {
-      background: #ffffff;
-      padding: 2em 1em;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    h1 {
-      margin: 0;
+      background: #fdfdfd;
       color: #333;
     }
-    p {
-      color: #666;
+    header {
+      text-align: center;
+      padding: 1.5em;
+      background-color: #ffffff;
+    }
+    .banner {
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+      color: #444;
+    }
+    p.subtext {
       font-size: 1.2em;
-      margin-top: 0.5em;
+      color: #666;
+      margin-top: 0;
     }
     .form-container {
-      padding: 2em 0;
-      min-height: 600px;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2em 1em;
     }
   </style>
 </head>
 <body>
+  <div class="banner">
+    <img src="banner.jpg" alt="Elderly couple remembering" />
+  </div>
+
   <header>
     <h1>Memorial Memories</h1>
-    <p>Bring your loved ones to life with personalized AI avatars</p>
+    <p class="subtext">Bring your loved ones to life with personalized AI avatars</p>
   </header>
 
   <div class="form-container">
