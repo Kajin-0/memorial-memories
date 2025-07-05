@@ -59,7 +59,7 @@
       padding: 10px 14px;
       border-radius: 50px;
       font-size: 14px;
-      background-color: #3b5998; /* default FB */
+      background-color: #3b5998;
       transition: background 0.3s;
       cursor: pointer;
     }
@@ -81,16 +81,30 @@
       opacity: 0.85;
     }
 
-    .copied-confirmation {
+    .copied-toast {
       display: none;
-      font-size: 13px;
-      color: #4caf50;
-      margin-top: 8px;
-      transition: opacity 0.3s ease;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
     }
 
-    .copied-confirmation.show {
+    .copied-toast.show {
       display: block;
+      animation: fadeOut 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
     }
 
     footer {
@@ -103,9 +117,12 @@
 </head>
 <body>
 
+  <!-- Toast Notification -->
+  <div id="copied-toast" class="copied-toast">Link copied!</div>
+
   <header>
     <h1>In Loving Memory of Kenneth and Mary Gill</h1>
-    <p></p>
+    <p>June 12, 1933 – April 9, 2024</p>
   </header>
 
   <div class="video-container">
@@ -137,22 +154,21 @@
       Pinterest
     </a>
 
-    <div style="display: inline-block; position: relative;">
-      <button class="copy" onclick="copyLink()"> 
-        <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
-        Copy Link
-      </button>
-      <div id="copied-msg" class="copied-confirmation">Link copied!</div>
-    </div>
+    <button class="copy" onclick="copyLink()">
+      <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
+      Copy Link
+    </button>
   </div>
 
   <script>
     function copyLink() {
       const link = "https://memorial-memories.org/kenneth-mary-gill.html";
       navigator.clipboard.writeText(link).then(() => {
-        const msg = document.getElementById("copied-msg");
-        msg.classList.add("show");
-        setTimeout(() => msg.classList.remove("show"), 1500);
+        const toast = document.getElementById("copied-toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 1500);
       });
     }
   </script>
