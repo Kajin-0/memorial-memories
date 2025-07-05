@@ -61,6 +61,7 @@
       font-size: 14px;
       background-color: #3b5998; /* default FB */
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     .social-share a.linkedin { background-color: #0077b5; }
@@ -80,6 +81,18 @@
       opacity: 0.85;
     }
 
+    .copied-confirmation {
+      display: none;
+      font-size: 13px;
+      color: #4caf50;
+      margin-top: 8px;
+      transition: opacity 0.3s ease;
+    }
+
+    .copied-confirmation.show {
+      display: block;
+    }
+
     footer {
       font-size: 14px;
       color: #aaa;
@@ -92,11 +105,11 @@
 
   <header>
     <h1>In Loving Memory of Kenneth and Mary Gill</h1>
-    <p></p>
+    <p>June 12, 1933 – April 9, 2024</p>
   </header>
 
   <div class="video-container">
-    <iframe src="https://drive.google.com/file/d/1ORHh3WZH1Eee69-YsT7lDLVeCb4dHDqQ/preview" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1qJA5wF4jP4TcK9-Jm3va44a3s0-tnQJ5/preview" allow="autoplay"></iframe>
   </div>
 
   <p class="quote">“The best of you both lives in us all.”</p>
@@ -124,17 +137,22 @@
       Pinterest
     </a>
 
-    <button class="copy" onclick="copyLink()">
-      <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
-      Copy Link
-    </button>
+    <div style="display: inline-block; position: relative;">
+      <button class="copy" onclick="copyLink()"> 
+        <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 18H8V7h11v16z"/></svg>
+        Copy Link
+      </button>
+      <div id="copied-msg" class="copied-confirmation">Link copied!</div>
+    </div>
   </div>
 
   <script>
     function copyLink() {
       const link = "https://memorial-memories.org/kenneth-mary-gill.html";
       navigator.clipboard.writeText(link).then(() => {
-        alert("Link copied to clipboard!");
+        const msg = document.getElementById("copied-msg");
+        msg.classList.add("show");
+        setTimeout(() => msg.classList.remove("show"), 1500);
       });
     }
   </script>
